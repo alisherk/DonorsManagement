@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<head>
+ <title><ui:insert name="title">
+ 
+  <ui:include src = "/templates/title.xhtml" />
+ 
+ 
+ </ui:insert></title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</meta>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</link>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+
+  <!-- start header -->
+      <div>
+         <ui:insert name="header" >
+            <ui:include src = "/templates/header.xhtml" />
+         </ui:insert> 
+      </div>	
+  <!--header-->
+    	
+	<div class="container">
+     
+      <!-- Heading Row -->
+      <div class="row">
+      
+        <div class="col-sm-8">
+          
+          <h1>Al Software</h1>
+         
+          <p>We are a group of software developers committed to providing software to not-for-profits 
+           free of charge. Many not-for-profit organizations can not afford software because of the rising costs of development. As a result, most resort to MS Office to manage their members, donors, donations, and even, payments. 
+           Our goal is to provide working software to such organizations for free. </p>
+         
+        </div>
+        <br />
+         <div class="col-sm-4">
+         
+         <div>
+          <h3>Contact Us</h3>
+          <address>
+           232 Del Monica Road     
+           Winnipeg 
+           <p>MB R3Y 0W6 </p>
+         
+           </address>
+          </div>
+            <abbr title="Phone">P:</abbr>
+            (204) 583-3876
+            <p><abbr title="Email">E:</abbr>
+            <a href="mailto:#">alisherkabildjanov@yahoo.com</a>
+            </p>
+         </div>
+       
+      </div>
+       <!-- End Heading Row -->
+      
+    
+    <!--  start content  -->
+    <div class="row">
+        <div class="col-sm-4">
+          <div class="thumbnail">
+            <img class="card-img-top" src="http://localhost:8080/DonorsManagementApp/images/membership.jpg" alt="Members image"> </img>
+            <div class="card-body">
+              <h4 class="card-title">Member Management Module</h4>
+              <p class="card-text">Find out how to use the software to manage your members and donors</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">Find Out More!</a>
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-sm-4">
+          <div class="thumbnail">
+            <img class="card-img-top" src="http://localhost:8080/DonorsManagementApp/images/payments.jpg" alt="Payments image"> </img>
+            <div class="card-body">
+              <h4 class="card-title">Payment Management Module</h4>
+              <p class="card-text">Find out how to manage payments and donations to your organization.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">Find Out More!</a>
+            </div>
+          </div>
+        </div>
+        
+         
+        
+    
+</div>
+<!-- end content -->
+  
+  </div>
+  <!-- container -->
+  
+   <br/>
+   
+    <!-- Start footer -->
+      <div>
+         <ui:insert name="footer" >
+            <ui:include src ="/templates/footer.xhtml" />
+         </ui:insert> 
+      </div>
+   <!-- end footer-->
+</body>
+
+</html>

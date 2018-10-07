@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+<h:head>
+
+	<title><ui:insert name="title">
+			<ui:include src="/templates/title.xhtml" />
+		</ui:insert></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+
+
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"></link>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+</h:head>
+
+<body>
+	<div>
+		<ui:insert name="header">
+			<ui:include src="/templates/header.xhtml" />
+		</ui:insert>
+	</div>
+
+	<div class="container">
+
+		<h:form id="filteredMembersForm">
+
+			<h:dataTable id="mTable" styleClass="table table-striped table-hover"
+				value="#{memberFilterBean.members}" var="m">
+
+
+				<h:column>
+
+
+					<f:facet name="header">
+						<div class="text-left">#</div>
+					</f:facet>
+					<h:outputText value="#{m.memberNumber}" />
+
+
+				</h:column>
+
+				<h:column>
+
+					<f:facet name="header">
+						<div class="text-left">Type</div>
+					</f:facet>
+					<h:outputText value="#{m.type}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<div class="text-left">First</div>
+					</f:facet>
+					<h:outputText value="#{m.firstName}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<div class="text-left">Last</div>
+					</f:facet>
+					<h:outputText value="#{m.lastName}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<div class="text-left">Street</div>
+					</f:facet>
+					<h:outputText value="#{m.streetAddress}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<div class="text-left">City</div>
+					</f:facet>
+					<h:outputText value="#{m.city}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<div class="text-left">Prov</div>
+					</f:facet>
+					<h:outputText value="#{m.province}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<div class="text-left">Postal</div>
+					</f:facet>
+					<h:outputText value="#{m.postalCode}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<div class="text-left">Email</div>
+					</f:facet>
+					<h:outputText value="#{m.email}" />
+
+				</h:column>
+
+
+				<h:column>
+					<f:facet name="header">
+						<div class="text-center">Phone</div>
+					</f:facet>
+
+					<h:outputText value="#{m.phone}" />
+
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<div class="text-left">Note</div>
+					</f:facet>
+
+					<h:outputText value="#{m.comment}" />
+
+				</h:column>
+
+				<h:column>
+
+					<h:commandLink action="#{memberFilterBean.editMember(m)}">
+						<i class="glyphicon glyphicon-edit"></i>
+					</h:commandLink>
+
+
+				</h:column>
+
+
+				<h:column>
+
+					<h:commandLink action="#{memberFilterBean.deleteMember(m)}">
+
+						<i class="glyphicon glyphicon-trash"></i>
+
+					</h:commandLink>
+
+				</h:column>
+
+			</h:dataTable>
+		</h:form>
+	</div>
+
+</body>
+
+</html>

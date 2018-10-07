@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<title><ui:insert name="title">
+		<ui:include src="/templates/title.xhtml" />
+	</ui:insert></title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</meta>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</link>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+	<div>
+		<ui:insert name="header">
+			<ui:include src="/templates/header.xhtml" />
+		</ui:insert>
+	</div>
+
+	<div class="container">
+		<div class="text-center">
+			<h3 style="color: Gray">Update Member</h3>
+		</div>
+		<h:form>
+
+			<div class="col-lg-6 col-lg-offset-3">
+
+				<div class="form-group">
+					<label for="type"> Type: </label>
+					<div class="input-group">
+						<span class="input-group-addon"><span
+							class="glyphicon glyphicon-transfer"></span></span>
+						<h:inputText id="type" class="form-control"
+							value="#{memberEditBean.member.type}" />
+					</div>
+				</div>
+
+
+				<div class="form-group">
+					<label for="firstName">First Name:</label>
+					<div class="input-group">
+						<span class="input-group-addon"><span
+							class="glyphicon glyphicon-transfer"></span></span>
+						<h:inputText id="firstName" class="form-control"
+							value="#{memberEditBean.member.firstName}" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="lastName">Last Name:</label>
+					<div class="input-group">
+						<span class="input-group-addon"><span
+							class="glyphicon glyphicon-transfer"></span></span>
+						<h:inputText id="lastName" class="form-control"
+							value="#{memberEditBean.member.lastName}" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="address">Address:</label>
+					<div class="input-group">
+						<span class="input-group-addon"><span
+							class="glyphicon glyphicon-transfer"></span></span>
+						<h:inputText id="address" class="form-control"
+							value="#{memberEditBean.member.streetAddress}" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="city">City:</label>
+					<div class="input-group">
+						<span class="input-group-addon"><span
+							class="glyphicon glyphicon-transfer"></span></span>
+						<h:inputText id="city" class="form-control"
+							value="#{memberEditBean.member.city}" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="prov">Province:</label>
+					<div class="input-group">
+						<span class="input-group-addon"><span
+							class="glyphicon glyphicon-transfer"></span></span>
+						<h:selectOneMenu id="prov" class="form-control"
+							value="#{memberEditBean.member.province}">
+							<f:selectItem itemValue="YK" itemLabel="YK" />
+							<f:selectItem itemValue="BC" itemLabel="BC" />
+							<f:selectItem itemValue="NT" itemLabel="NT" />
+							<f:selectItem itemValue="AB" itemLabel="AB" />
+							<f:selectItem itemValue="NU" itemLabel="NU" />
+							<f:selectItem itemValue="SK" itemLabel="SK" />
+							<f:selectItem itemValue="MB" itemLabel="MB" />
+							<f:selectItem itemValue="ON" itemLabel="ON" />
+							<f:selectItem itemValue="QC" itemLabel="QC" />
+							<f:selectItem itemValue="NL" itemLabel="NL" />
+							<f:selectItem itemValue="PE" itemLabel="PE" />
+							<f:selectItem itemValue="NS" itemLabel="NS" />
+							<f:selectItem itemValue="NB" itemLabel="NB" />
+						</h:selectOneMenu>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="postal">Postal Code:</label>
+					<div class="input-group">
+						<span class="input-group-addon"><span
+							class="glyphicon glyphicon-transfer"></span></span>
+						<h:inputText id="postal" class="form-control"
+							value="#{memberEditBean.member.postalCode}" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="email">Email:</label>
+					<div class="input-group">
+						<span class="input-group-addon"><span
+							class="glyphicon glyphicon-transfer"></span></span>
+						<h:inputText id="email" class="form-control"
+							value="#{memberEditBean.member.email}" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="phone">Phone:</label>
+					<div class="input-group">
+						<span class="input-group-addon"><span
+							class="glyphicon glyphicon-transfer"></span></span>
+						<h:inputText id="phone" class="form-control"
+							value="#{memberEditBean.member.phone}" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="comment">Comment:</label>
+					<div class="input-group">
+						<span class="input-group-addon"><span
+							class="glyphicon glyphicon-transfer"></span></span>
+						<h:inputText id="comment" class="form-control"
+							value="#{memberEditBean.member.comment}" />
+					</div>
+				</div>
+
+			</div>
+
+
+			<div class="row">
+				<div
+					class="col-md-6 col-md-offset-5 col-sm-6 col-sm-offset-5 col-xs-6 col-xs-offset-5">
+
+					<h:commandButton style="margin:5px" id="updateButton"
+						class="btn btn-info" value="Update"
+						action="#{memberEditBean.updateMember(memberEditBean.member)}" />
+
+					<h:commandButton id="cancelButton"
+						action="#{memberEditBean.cancelRequest()}" class="btn btn-info"
+						value="Cancel" />
+
+				</div>
+			</div>
+
+
+		</h:form>
+
+	</div>
+
+
+	<!-- Start footer -->
+	<div>
+		<ui:insert name="footer">
+			<ui:include src="/templates/footer.xhtml" />
+		</ui:insert>
+	</div>
+	<!-- end footer-->
+
+
+</body>
+
+</html>

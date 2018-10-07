@@ -1,0 +1,276 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title><ui:insert name="title">
+			<ui:include src="/templates/title.xhtml" />
+		</ui:insert></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	</meta>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	</link>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script type="text/javascript"> 
+
+function focusElement() {
+
+	document.getElementById("mainForm:memNum").focus(); 
+
+}
+
+</script>
+
+</h:head>
+
+<body>
+
+	<div>
+		<ui:insert name="header">
+			<ui:include src="/templates/header.xhtml" />
+		</ui:insert>
+	</div>
+
+	<div class="container">
+
+		<div class="table table-striped">
+
+			<h:form class="well form-horizontal" id="add-form">
+
+				<div class="text-muted">
+
+					<i> <h:messages id="jsfMess" warnClass="text-danger"
+							infoClass="text-info" globalOnly="true" style="font-size:130%"
+							layout="table" />
+
+					</i>
+
+				</div>
+
+				<fieldset>
+
+					<div class="form-group">
+						<label style="text-align: right" class="col-md-2 control-label">Membership</label>
+						<div class="col-md-8">
+							<div class="input-group">
+								<span class="input-group-addon"> <i
+									class="glyphicon glyphicon-hand-right"></i>
+								</span>
+
+								<h:inputText type="search" id="memNum" class="form-control"
+									pt:placeholder="required field" required="true"
+									validatorMessage="Membership # can not be more than 5 elements"
+									requiredMessage="Membership # is required">
+									<f:validateLength maximum="5" />
+								</h:inputText>
+
+
+							</div>
+
+							<div>
+								<i> <h:message for="memNum" style="color:red" />
+								</i>
+							</div>
+
+
+						</div>
+
+					</div>
+
+					<div class="form-group">
+						<label style="text-align: right" class="col-md-2 control-label">Member
+							Type </label>
+						<div class="col-md-8">
+							<div class="input-group">
+								<span class="input-group-addon"> <i
+									class="glyphicon glyphicon-time"></i></span>
+								<h:inputText id="type" name="type" class="form-control"
+									required="true" pt:placeholder="required field"
+									requiredMessage="Type can't be empty" />
+							</div>
+							<div>
+								<i> <h:message for="type" style="color:red" />
+								</i>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label style="text-align: right" class="col-md-2 control-label">First
+							Name</label>
+
+						<div class="col-md-8">
+							<div class="input-group">
+								<span class="input-group-addon"> <i
+									class="glyphicon glyphicon-user"></i></span>
+								<h:inputText id="firstName" class="form-control" required="true"
+									pt:placeholder="required field"
+									requiredMessage="First name can't be empty" />
+							</div>
+							<div>
+								<i> <h:message for="firstName" style="color:red" />
+								</i>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label style="text-align: right" class="col-md-2 control-label">Last
+							Name</label>
+
+						<div class="col-md-8">
+							<div class="input-group">
+								<span class="input-group-addon"> <i
+									class="glyphicon glyphicon-user"></i></span>
+								<h:inputText id="lastName" class="form-control" required="true"
+									pt:placeholder="required field"
+									requiredMessage="Last name can't be empty" />
+
+							</div>
+							<div>
+								<i> <h:message for="lastName" style="color:red" />
+								</i>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label style="text-align: right" class="col-md-2 control-label">Address
+						</label>
+
+						<div class="col-md-8">
+							<div class="input-group">
+								<span class="input-group-addon"> <i
+									class="glyphicon glyphicon-home"></i></span>
+								<h:inputText id="address" class="form-control" />
+
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label style="text-align: right" class="col-md-2 control-label">City</label>
+
+						<div class="col-md-8">
+							<div class="input-group">
+								<span class="input-group-addon"> <i
+									class="glyphicon glyphicon-globe"></i></span>
+								<h:inputText id="city" class="form-control" />
+
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label style="text-align: right" class="col-md-2 control-label">Province</label>
+
+						<div class="col-md-8">
+							<div class="input-group">
+								<span class="input-group-addon"> <i
+									class="glyphicon glyphicon-globe"></i></span>
+								<h:selectOneMenu id="prov" class="form-control">
+									<f:selectItem itemValue="" itemLabel="Select province" />
+									<f:selectItem itemValue="YK" itemLabel="YK" />
+									<f:selectItem itemValue="BC" itemLabel="BC" />
+									<f:selectItem itemValue="NT" itemLabel="NT" />
+									<f:selectItem itemValue="AB" itemLabel="AB" />
+									<f:selectItem itemValue="NU" itemLabel="NU" />
+									<f:selectItem itemValue="SK" itemLabel="SK" />
+									<f:selectItem itemValue="MB" itemLabel="MB" />
+									<f:selectItem itemValue="ON" itemLabel="ON" />
+									<f:selectItem itemValue="QC" itemLabel="QC" />
+									<f:selectItem itemValue="NL" itemLabel="NL" />
+									<f:selectItem itemValue="PE" itemLabel="PE" />
+									<f:selectItem itemValue="NS" itemLabel="NS" />
+									<f:selectItem itemValue="NB" itemLabel="NB" />
+								</h:selectOneMenu>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label style="text-align: right" class="col-md-2 control-label">Postal
+							Code</label>
+
+						<div class="col-md-8">
+							<div class="input-group">
+								<span class="input-group-addon"> <i
+									class="glyphicon glyphicon-globe"></i></span>
+								<h:inputText id="postalCode" class="form-control" />
+
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label style="text-align: right" class="col-md-2 control-label">Email</label>
+
+						<div class="col-md-8">
+							<div class="input-group">
+								<span class="input-group-addon"> <i
+									class="glyphicon glyphicon-envelope"></i></span>
+								<h:inputText id="email" class="form-control" required="true"
+									pt:placeholder="required field"
+									requiredMessage="Email can't be empty" />
+							</div>
+							<div>
+								<i> <h:message for="email" style="color:red" />
+								</i>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label style="text-align: right" class="col-md-2 control-label">Phone</label>
+
+						<div class="col-md-8">
+							<div class="input-group">
+								<span class="input-group-addon"> <i
+									class="glyphicon glyphicon-phone-alt"></i></span>
+								<h:inputText id="phone" class="form-control" />
+
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+
+						<div class="col-sm-offset-5 col-md-1 text-center">
+							<div class="btn-toolbar container">
+
+								<h:commandButton id="addButton" class="btn btn-info col-xs-1"
+									value="Add" action="#{dao.addMember}">
+
+									<f:ajax execute="@form" render="add-form"
+										onevent="focusElement" />
+								</h:commandButton>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+			</h:form>
+		</div>
+	</div>
+
+	<!-- Start footer -->
+	<div>
+		<ui:insert name="footer">
+			<ui:include src="/templates/footer.xhtml" />
+		</ui:insert>
+	</div>
+	<!-- end footer-->
+
+</body>
+
+</html>
