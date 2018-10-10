@@ -228,14 +228,14 @@ public class MemberDaoImpl implements MemberDao {
 	}
 
 	@Override
-	public List<Member> readMember(List<Member> members) {
+	public List <Member> readMember(List<Member> members) {
 
 		List<Member> list = new ArrayList<>();
 
 		try {
 			List<String> membernums = new ArrayList<>();
 
-			members.forEach(m -> {membernums.add(m.getMemberNumber());});
+			members.forEach(m -> membernums.add(m.getMemberNumber()));
 			
 			StringBuilder sb = new StringBuilder("Select * from Members Where MemberNumber = ?");
 

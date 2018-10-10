@@ -1,46 +1,38 @@
 package com.alsoftware.model;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.function.BiConsumer;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
 
-	public static void main(String[] args) throws SQLException {
+	public static void main(String[] args) {
 
-		Connection con = DatabaseCon.getInstance().getCon();
-		PreparedStatement ps = con.prepareStatement("Select * from Members");
-		ResultSet rs = ps.executeQuery();
-		while (rs.next()) {
-
-			System.out.println("There is a record");
-
-		}
-
+		List <Member> people = Arrays.asList(
+				
+				new Member("1", "Weekly", "Bob", "Dylan"), 
+				new Member("2", "Daily", "Mary", "Popin"), 
+				new Member("3", "Yearly", "Jack", "Murphy")
+				
+				); 
+		
+		people.forEach(m-> System.out.println(m));
+				
+			
+		
+		
+		
+		
+         Thread t = new Thread(Main::printMessage);
+		 t.start();
+		
 	}
+		
+	
 
-	public static void process(int[] numbers, int key, BiConsumer<Integer, Integer> cons) {
-
-		for (int i : numbers) {
-			cons.accept(i, key);
-		}
-	}
-
-	public static BiConsumer<Integer, Integer> catchLambda(BiConsumer<Integer, Integer> cons) {
-
-		return (a, b) -> {
-
-			try {
-
-				cons.accept(a, b);
-
-			} catch (Exception ex) {
-
-				ex.printStackTrace();
-			}
-
-		};
-	}
+       
+       public static void printMessage() {
+    	   
+    	   System.out.println("Hello");
+       }
+	
 }
