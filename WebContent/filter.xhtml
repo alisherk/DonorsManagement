@@ -28,9 +28,16 @@
 
 	<div class="container">
 
-		<h:form id="filteredMembersForm">
+		<h:form id="filteredmembers-form">
+		
+		<div class="col-xs-3">
+					<div
+						class="text-primary text-center well well-sm">
+						<p id="row-count"></p>
+					</div>
+				</div>
 
-			<h:dataTable id="mTable" styleClass="table table-striped table-hover"
+			<h:dataTable id="filteredmembers-table" styleClass="table table-striped table-hover"
 				value="#{memberFilterBean.members}" var="m">
 
 
@@ -143,6 +150,15 @@
 				</h:column>
 
 			</h:dataTable>
+	
+	<script type="text/javascript">
+	
+	var rowcount= document.getElementById('filteredmembers-form:filteredmembers-table').rows.length - 1;
+    var p = document.getElementById('row-count'); 
+    var rec = rowcount > 1 ? 'records': 'record';
+    p.innerHTML = 'Found ' + rowcount +'\t' + rec ; 
+     
+    </script>
 		</h:form>
 	</div>
 
