@@ -2,6 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:jsf="http://xmlns.jcp.org/jsf"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <body>
@@ -74,10 +76,13 @@
 				  </li>
 			   </ul>
 			   
+			    <h:form>
+			    <div class="col-md-offset-10">
 			   <ul class="nav navbar-nav navbar-right">
-			    <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
-			   
+			    <li><h:commandLink action="#{loginBean.logout}" value="Logout "><span class="glyphicon glyphicon-log-out"></span></h:commandLink></li>
 			   </ul>
+			   </div>
+			   </h:form>
 			   
 		   </div>
 	    </nav>

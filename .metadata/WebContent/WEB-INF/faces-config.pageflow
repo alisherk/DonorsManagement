@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15389432924590" configfile="/DonorsManagementApp/WebContent/WEB-INF/faces-config.xml"/>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15389432924590" configfile="/DonorsManagementApp/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" id="pf15395190645380" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf15395212521283" path="/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="168" id="pf15395212521284" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf15395212521283" path="/index.xhtml"/>
+  <links id="pf15395212521283" target="pf15395212521284" source="pf15395190645380"/>
+</pageflow:Pageflow>

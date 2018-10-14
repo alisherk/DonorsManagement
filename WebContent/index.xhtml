@@ -18,6 +18,7 @@
 	<ui:insert name="bootstrap">
 		<ui:include src="/templates/bootstrap.xhtml" />
 	</ui:insert>
+	
 
 </head>
 
@@ -38,7 +39,8 @@
 
 			<div class="col-sm-8">
 
-				<h1>Al Software</h1>
+				<h1>Welcome <span class="text-primary">#{loginBean.user}</span> to Al Software</h1>
+				
 
 				<p>We are a group of software developers committed to providing
 					software to not-for-profits free of charge. Many not-for-profit

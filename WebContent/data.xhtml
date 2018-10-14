@@ -13,7 +13,6 @@
 	     <ui:insert name="title">
 			<ui:include src="/templates/title.xhtml" />
 	     </ui:insert>
-	
 	</title>
 	
 	 <ui:insert name="bootstrap">
@@ -202,6 +201,12 @@
     p.innerHTML = 'Total members: ' + rowcount; 
      
     </script>
+    
+    <div>
+		<ui:insert name="footer">
+			<ui:include src="/templates/footer.xhtml" />
+		</ui:insert>
+	</div>
 
 </h:body>
 

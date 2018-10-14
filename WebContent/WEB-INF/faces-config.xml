@@ -10,6 +10,14 @@
 	<phase-listener>com.alsoftware.controller.MessageListener</phase-listener>
 
 </lifecycle>
+
+	<navigation-rule>
+		<from-view-id>/login.xhtml</from-view-id>
+		<navigation-case>
+		     <from-outcome>Admin</from-outcome>
+			<to-view-id>/index.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
     
 
 </faces-config>

@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<title><ui:insert name="title">
+			<ui:include src="/templates/title.xhtml" />
+		</ui:insert></title>
+
+	<ui:insert name="bootstrap">
+		<ui:include src="/templates/bootstrap.xhtml" />
+	</ui:insert>
+   
+    <style> 
+	body 
+	{background-color: lightblue;}
+	</style>
+</h:head>
+
+<h:body>
+   
+	<div class="container">
+		
+		       <div class="row">
+				<h2 class="text-center" style="color:white">Log in</h2>
+				</div>
+			
+			   <div class="col-sm-8 col-sm-offset-2"> 
+				<div class="well"> 
+					<h:form id="login-form">
+						<div class="form-group">
+							<label for="username">Username</label>
+							<h:inputText id="username" value="#{loginBean.user}"
+								class="form-control" required="true"
+								requiredMessage="Username required">
+							</h:inputText>
+							<div>
+								<i> <h:message for="username" style="color:red" /></i>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="password">Password</label>
+							<h:inputSecret class="form-control" id="password"
+								value="#{loginBean.pwd}" required="true"
+								requiredMessage="Password required">
+							</h:inputSecret>
+							<div>
+								<i> <h:message for="password" style="color:red" /></i>
+							</div>
+						</div>
+						
+							<div class="text-muted">
+
+					       <i> <h:messages id="login-message" warnClass="text-danger"
+							infoClass="text-info" globalOnly="true" style="font-size:100%"
+							layout="table" />
+
+					</i>
+
+				</div>
+						
+						<div class="checkbox">
+							<label> <input type="checkbox"> Remember me on this computer</input>
+							</label>
+						</div>
+						<h:commandButton class="btn btn-primary" style="margin:5px;text-align:center" action="#{loginBean.validateUsernamePassword}"
+							value="Login&#160;&#160;&#160;"></h:commandButton>	
+							
+						<h:commandButton class="btn btn-primary" value="Register"></h:commandButton>			
+     				</h:form>
+			 </div>
+	     </div>
+	</div>
+</h:body>
+
+<footer> 
+	<div>
+		<ui:insert name="footer">
+			<ui:include src="/templates/footer.xhtml" />
+		</ui:insert>
+	</div>
+</footer>
+
+</html>
