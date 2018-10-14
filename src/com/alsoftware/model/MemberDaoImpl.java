@@ -228,7 +228,7 @@ public class MemberDaoImpl implements MemberDao {
 	}
 
 	@Override
-	public List <Member> readMember(List<Member> members) {
+	public List <Member> readMembers(List<Member> members) {
 
 		List<Member> list = new ArrayList<>();
 

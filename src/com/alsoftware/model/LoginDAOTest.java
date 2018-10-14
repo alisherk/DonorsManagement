@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 import org.junit.jupiter.api.Test;
 
-class LoginDAOTest {
+class LoginDaoTest {
 
 	@Test
 	void testValidate() {

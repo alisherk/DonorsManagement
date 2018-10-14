@@ -14,5 +14,5 @@ public interface MemberDao {
 	
 	public boolean updateMember(Member member); 
 	
-	public List<Member> readMember(List<Member> members); 
+	public List<Member> readMembers(List<Member> members); 
 }

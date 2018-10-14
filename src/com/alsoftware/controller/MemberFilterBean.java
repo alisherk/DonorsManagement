@@ -57,7 +57,7 @@ public class MemberFilterBean implements Serializable {
 		if(da.deleteMember(member)==true) {
 		
 			MemberDao dao = new MemberDaoImpl();
-		    this.setMembers(dao.readMember(members));
+		    this.setMembers(dao.readMembers(members));
 			return "filteredmembers?faces-redirect=true"; 
 			
 		} else {

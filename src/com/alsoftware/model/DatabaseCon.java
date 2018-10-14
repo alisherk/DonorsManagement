@@ -33,12 +33,12 @@ public class DatabaseCon {
 					System.out.println("Transaction is being rolled back");
 					con.rollback();
 					con.close();
-
+				
 				} catch (SQLException ex) {
 					ex.printStackTrace();
 				}
+			
 			}
-
 		} 
 		 return con;
 

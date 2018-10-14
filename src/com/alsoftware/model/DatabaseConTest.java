@@ -1,6 +1,5 @@
 package com.alsoftware.model;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -41,17 +40,4 @@ class DatabaseConTest {
 
 	}
     
-	@Test 
-	void testConClosed() {
-		
-		try {
-		String malFormedSQL = "Sel from Members"; 
-		pst = con.prepareStatement(malFormedSQL); 
-		pst.executeQuery(); 
-		assertTrue(con.isClosed());
-		
-	}catch (SQLException ex) {
-		ex.printStackTrace();
-	}
-}
 }
