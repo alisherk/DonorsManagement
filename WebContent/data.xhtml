@@ -19,11 +19,30 @@
 		<ui:include src="/templates/bootstrap.xhtml" />
 	</ui:insert>
 	
+	
 <script type="text/javascript">
 
-	function clearFunc (target) {
-		 document.getElementById('search').value = '' } 
+
+	$(document).ready(function() {
+		
+		$('.form-control').on('input', function(){
 			
+			if ($(this).val().indexOf(' ')>=0)
+				$(this).css('border-color', 'red')
+				.one('keyup', function(){
+					$('button').attr('disabled', true); 
+				}); 
+			else 
+				$(this).css('border-color', '#2b9bd4')
+				.one('keyup', function(){
+					$('button').removeAttr('disabled'); 
+				}); 
+		}); 
+
+		var count = $('.table').find('tr').length - 1;
+		$('.row-count').append('Total members: ' + count);
+
+	});
 </script>
 
 
@@ -35,6 +54,7 @@
 			<ui:include src="/templates/header.xhtml" />
 		</ui:insert>
 	</div>
+	
 
 	<div class="container">
 
@@ -42,8 +62,7 @@
 			<div class="col-md-5 col-sm-5 col-xs-5" style="margin-bottom: 30px">
 				<div class="input-group">
 					<h:inputText id="searchInputParam" class="form-control"
-						pt:placeholder="Search by membership or first or last name"
-						onclick="clearFunc()" required="true"
+						pt:placeholder="Search by membership or first or last name" required="true"
 						requiredMessage="Please enter membership or first or last name" />
 
 
@@ -69,12 +88,12 @@
 				<div class="col-xs-6">
 					<div
 						class="text-primary text-center well well-sm col-sm-4 col-sm-offset-10 col-md-4 col-md-offset-10">
-						<p id="row-count"></p>
+						<p class="row-count"></p>
 					</div>
 				</div>
 			</div>
 
-			<h:dataTable class="" id="members-table"
+			<h:dataTable class="table" id="members-table"
 				styleClass="table-responsive table table-striped table-hover"
 				value="#{dao.members}" var="m">
 
@@ -194,14 +213,7 @@
 		</h:form>
 	</div>
 
-	<script type="text/javascript">
-	
-	var rowcount= document.getElementById('members-form:members-table').rows.length - 1;
-    var p = document.getElementById('row-count'); 
-    p.innerHTML = 'Total members: ' + rowcount; 
-     
-    </script>
-    
+	    
     <div>
 		<ui:insert name="footer">
 			<ui:include src="/templates/footer.xhtml" />
