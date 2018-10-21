@@ -7,6 +7,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+
+import com.alsoftware.model.DaoFactory;
 import com.alsoftware.model.Member;
 import com.alsoftware.model.MemberDao;
 import com.alsoftware.model.MemberDaoImpl;
@@ -53,7 +55,7 @@ public class MemberFilterBean implements Serializable {
 
 	public String deleteMember(Member member) {
 
-		MemberDao da = new MemberDaoImpl(); 
+		MemberDao da = DaoFactory.getMemberImplDao(); 
 		if(da.deleteMember(member)==true) {
 		
 			MemberDao dao = new MemberDaoImpl();

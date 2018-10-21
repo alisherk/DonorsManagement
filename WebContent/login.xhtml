@@ -15,7 +15,13 @@
     <style> 
 	body 
 	{background-color: lightblue;}
+	
+	.btn{
+    width:100px; 
+    margin:5px; 
+}
 	</style>
+
 </h:head>
 
 <h:body>
@@ -64,10 +70,17 @@
 							<label> <input type="checkbox"> Remember me on this computer</input>
 							</label>
 						</div>
-						<h:commandButton class="btn btn-primary" style="margin:5px;text-align:center" action="#{loginBean.validateUsernamePassword}"
-							value="Login&#160;&#160;&#160;"></h:commandButton>	
+						
+						
+						<div class=" btn-group">
+						
+						
+						<h:commandButton class="btn btn-primary" action="#{loginBean.validateUsernamePassword}"
+							value="Login"/>	
 							
-						<h:commandButton class="btn btn-primary" value="Register"></h:commandButton>			
+						<h:commandButton class="btn btn-primary" value="Register"/>
+					
+						</div>			
      				</h:form>
 			 </div>
 	     </div>

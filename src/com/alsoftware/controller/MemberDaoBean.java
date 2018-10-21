@@ -9,6 +9,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
+
+import com.alsoftware.model.DaoFactory;
 import com.alsoftware.model.Member;
 import com.alsoftware.model.MemberDao;
 import com.alsoftware.model.MemberDaoImpl;
@@ -62,7 +64,7 @@ public class MemberDaoBean implements Serializable {
            
 		Map<String, String> values = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 		String param = values.get("members-form:searchInputParam"); 
-		MemberDao da = new MemberDaoImpl(); 
+		MemberDao da = DaoFactory.getMemberImplDao(); 
 		List <Member> list = new ArrayList<>(); 
 		list = da.findCertMembers(param); 
 		
@@ -94,7 +96,7 @@ public class MemberDaoBean implements Serializable {
 		member.setEmail(formvalues.get("add-form:email").trim());
 		member.setPhone(formvalues.get("add-form:phone").trim());
 		
-		MemberDao da = new MemberDaoImpl(); 
+		MemberDao da = DaoFactory.getMemberImplDao(); 
 		if(da.insertMember(member) == true) {
 			
 			FacesContext.getCurrentInstance().addMessage(null,
@@ -112,7 +114,7 @@ public class MemberDaoBean implements Serializable {
 
 	public String deleteMember(Member member) {
 
-		MemberDao da = new MemberDaoImpl(); 
+		MemberDao da = DaoFactory.getMemberImplDao();  
 		if(da.deleteMember(member)== true) {
 			
 			

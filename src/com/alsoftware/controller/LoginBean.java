@@ -6,7 +6,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
-import com.alsoftware.model.LoginDao;
+import com.alsoftware.model.DaoFactory;
 
 @ManagedBean
 @SessionScoped
@@ -43,7 +43,7 @@ public class LoginBean implements Serializable {
 
 	public String validateUsernamePassword() {
 		
-		boolean valid = LoginDao.validate(user, pwd);
+		boolean valid = DaoFactory.getLoginDao().validate(user, pwd); 
 		if (valid) {
 			HttpSession session = SessionUtils.getSession();
 			session.setAttribute("username", user);

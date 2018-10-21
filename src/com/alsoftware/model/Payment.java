@@ -2,19 +2,23 @@ package com.alsoftware.model;
 
 public class Payment {
 
+	private int donorID;
 	private String paymentNumber;
-	private int memberID;
-	private double paymentAmount;
-
-
-	public Payment() {
+	private String firstName; 
+	private String lastName; 
+    private double paymentAmount;
+	
+    public Payment() {
 
 	}
 
-	public Payment(String paymentNumber, int memberID, double paymentAmount) {
-
+	public Payment(int donorID, String paymentNumber, String firstName, double paymentAmount, 
+		String lastName) {
+        
+		this.donorID = donorID;
 		this.paymentNumber = paymentNumber;
-		this.memberID = memberID;
+		this.firstName = firstName; 
+		this.lastName = lastName; 
 		this.paymentAmount = paymentAmount;
 	}
 
@@ -27,17 +31,34 @@ public class Payment {
 	}
 
 	public int getMemberID() {
-		return memberID;
+		return donorID;
 	}
 
-	public void setMemberID(int memberID) {
-		this.memberID = memberID;
+	public void setMemberID(int donorID) {
+		this.donorID = donorID;
 	}
 
 	public void setPaymentAmount(double paymentAmount) {
+	    this.paymentAmount = paymentAmount; 
 	}
 	
 	public double getPaymentAmount() {
 		return paymentAmount;
+	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 }

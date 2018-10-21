@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class LoginDao {
 
-	public static boolean validate(String user, String password) {
+	public boolean validate(String user, String password) {
 		Connection con = null;
 		PreparedStatement ps = null;
 

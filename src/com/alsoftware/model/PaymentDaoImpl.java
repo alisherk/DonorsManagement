@@ -4,25 +4,55 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
+
 
 public class PaymentDaoImpl implements PaymentDao {
 
 	private PreparedStatement ps;
-	private Connection con;
+	private Connection con = DatabaseCon.getInstance().getCon();
 	private ResultSet rs;
 
 	public PaymentDaoImpl() {
 
 	}
-
-	public PaymentDaoImpl(Connection con) {
-		this.con = con;
-	}
-
+	
 	@Override
-	public void enterPayment(Payment payment) {
+	public List<Payment> findAllPayments() {
+		
+		try {
+			
+			List<Payment> payments = new ArrayList<>(); 
+			ps = con.prepareStatement("Select * from Payments");
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				
+				Payment payment = new Payment(); 
+				payment.setPaymentNumber(rs.getString("PaymentNumber"));
+				payment.setFirstName(rs.getString("FirstName"));
+				payment.setFirstName(rs.getString("LastName"));
+				payment.setPaymentAmount(rs.getDouble("PaymentAmount"));
+				payments.add(payment); 
+			}
+			
+			return payments; 
+		
+			
+		} catch(SQLException ex) {
+			
+			ex.printStackTrace();
+			
+		}
+		
+		return null;
+	}
+	
+	@Override
+	public void insertPayment(Payment payment) {
 		try {
 
 			ps = con.prepareStatement("Insert into Payments(PaymentNumber, MemberID, PaymentAmount) Values(?, ?, ?)");
@@ -44,7 +74,7 @@ public class PaymentDaoImpl implements PaymentDao {
 	}
 
 	@Override
-	public String readPaymentNumber(String paymentNumber) {
+	public String readPayment (String paymentNumber) {
 
 		String number = null;
 
@@ -71,7 +101,7 @@ public class PaymentDaoImpl implements PaymentDao {
 
 		return number;
 	}
-
+	
 	@Override
 	public void deletePayment(Payment payment) {
 
@@ -118,33 +148,6 @@ public class PaymentDaoImpl implements PaymentDao {
 			e.printStackTrace();
 		}
 
-	}
-
-	@Override
-	public Payment readPayment(String paymentID) {
-
-		try {
-
-			ps = con.prepareStatement("Select * from Payments where PaymentNumber=?");
-			ps.setString(1, paymentID);
-			rs = ps.executeQuery();
-
-			if (rs.next()) {
-
-				Payment payment = new Payment();
-				payment.setPaymentNumber(rs.getString(2));
-				payment.setMemberID(rs.getInt(3));
-				payment.setPaymentAmount(rs.getDouble(3));
-
-				return payment;
-			}
-
-		} catch (SQLException e) {
-
-			e.printStackTrace();
-		}
-
-		return null;
 	}
 
 	@Override
