@@ -42,9 +42,9 @@ public class MemberEditBean implements Serializable {
 		String id = this.getPreviousPageId();
 		if (da.updateMember(member) == true) {
 
-			if (id.equals("/data.xhtml")) {
+			if (id.equals("/donors.xhtml")) {
 
-				return "data?faces-redirect=true";
+				return "donors?faces-redirect=true";
 
 			}
 			if (id.equals("/filter.xhtml")) {
@@ -60,9 +60,9 @@ public class MemberEditBean implements Serializable {
 		
     String id = this.getPreviousPageId(); 
    
-      if(id.equals("/data.xhtml")) {
+      if(id.equals("/donors.xhtml")) {
     	
-    	return "data?faces-redirect=true"; 	
+    	return "donors?faces-redirect=true"; 	
     	
     } else if(id.equals("/filter.xhtml")) {
     	

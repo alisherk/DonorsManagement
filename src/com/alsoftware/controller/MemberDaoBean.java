@@ -118,7 +118,7 @@ public class MemberDaoBean implements Serializable {
 		if(da.deleteMember(member)== true) {
 			
 			
-			return "data?faces-redirect=true"; 
+			return "donors?faces-redirect=true"; 
 			
 		} else {
 			

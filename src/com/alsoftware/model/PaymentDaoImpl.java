@@ -34,7 +34,7 @@ public class PaymentDaoImpl implements PaymentDao {
 				Payment payment = new Payment(); 
 				payment.setPaymentNumber(rs.getString("PaymentNumber"));
 				payment.setFirstName(rs.getString("FirstName"));
-				payment.setFirstName(rs.getString("LastName"));
+				payment.setLastName(rs.getString("LastName"));
 				payment.setPaymentAmount(rs.getDouble("PaymentAmount"));
 				payments.add(payment); 
 			}

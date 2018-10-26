@@ -7,19 +7,21 @@ public class Payment {
 	private String firstName; 
 	private String lastName; 
     private double paymentAmount;
-	
+	private String comment; 
+    
     public Payment() {
 
 	}
 
-	public Payment(int donorID, String paymentNumber, String firstName, double paymentAmount, 
-		String lastName) {
+	public Payment(int donorID, String paymentNumber, String firstName, String lastName, double paymentAmount, 
+		String comment) {
         
 		this.donorID = donorID;
 		this.paymentNumber = paymentNumber;
 		this.firstName = firstName; 
 		this.lastName = lastName; 
 		this.paymentAmount = paymentAmount;
+		this.comment = comment; 
 	}
 
 	public String getPaymentNumber() {
@@ -61,4 +63,13 @@ public class Payment {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
 }
