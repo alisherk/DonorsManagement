@@ -4,9 +4,8 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-	xmlns:jsf="http://xmlns.jcp.org/jsf">
+	xmlns:h="http://java.sun.com/jsf/html">
+
 <h:head>
 
 	<title>
@@ -21,28 +20,38 @@
 	
 	
 <script type="text/javascript">
-
+   //<![CDATA[ 
 
 	$(document).ready(function() {
+		
+		   var count = $('.table').find('tr').length - 1;				
+		   var addage = count > 1 ? '\trecords' : '\trecord';
+		   $('.row-count').append('Total: ' + count + addage);
 		
 		$('.form-control').on('input', function(){
 			
 			if ($(this).val().indexOf(' ')>=0)
 				$(this).css('border-color', 'red')
 				.one('keyup', function(){
-					$('button').attr('disabled', true); 
+					$('#warn-message').append('Avoid spaces')
+					.css('color', 'red'); 
 				}); 
 			else 
 				$(this).css('border-color', '#2b9bd4')
 				.one('keyup', function(){
-					$('button').removeAttr('disabled'); 
+					$('#warn-message').empty(); 
 				}); 
 		}); 
 
-		var count = $('.table').find('tr').length - 1;
-		$('.row-count').append('Total members: ' + count);
-
-	});
+		   
+		   $('#searchInputParam').on('keyup', function() {
+			    var value = $(this).val().toLowerCase();
+			    $('.table tbody tr').filter(function() {
+			      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+			    });
+			  });
+		   });
+	//]]>
 </script>
 
 
@@ -60,30 +69,14 @@
 
 		<h:form id="members-form">
 			<div class="col-md-5 col-sm-5 col-xs-5" style="margin-bottom: 30px">
-				<div class="input-group">
-					<h:inputText id="searchInputParam" class="form-control"
-						pt:placeholder="Search by membership or first or last name" required="true"
-						requiredMessage="Please enter membership or first or last name" />
-
-
-					<div class="input-group-btn">
-						<button class="btn btn-info" jsf:action="#{dao.findMembers}">
-							<i class="glyphicon glyphicon-search"></i>
-						</button>
-					</div>
+				<div class="input-group col-md-8">
+					<input id="searchInputParam" class="form-control"
+						placeholder="Filter by first or last name" style="border-color:#2b9bd4"/>
+					<span id="warn-message"> </span>
 				</div>
 			</div>
 
 			<div class="row">
-				<div class="col-xs-6">
-					<div class="text-info">
-
-						<i> <h:messages id="membersMessage" warnClass="text-danger"
-								infoClass="text-info" globalOnly="true" style="font-size:100%"
-								layout="table" /> <h:message for="searchInputParam" /></i>
-
-					</div>
-				</div>
 
 				<div class="col-xs-6">
 					<div

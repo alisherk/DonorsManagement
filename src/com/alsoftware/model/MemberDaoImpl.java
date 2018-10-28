@@ -184,9 +184,11 @@ public class MemberDaoImpl implements MemberDao {
 			} 
 
 		} catch (SQLException ex) {
+			
 			ex.printStackTrace();
 		}
-          return updated; 
+         
+		return updated; 
 		
 	}
 

@@ -134,8 +134,8 @@ public class Member {
 		 		
     public String toString() {
 	
-    	return memberNumber +"\t" + type + "\t" + firstName + "\t" + lastName + "\t" + streetAddress + "\t" + city +"\t" + province + "\t" + 
-    	postalCode +"\t" + email + "\t" + comment;
+    	return "memberNumber\ttype\tfirstName\tlastName\tstreetAddress\tcity\tprovince\t" + 
+    	"postalCode\temail\tcomment";
 			 	
     }
 }

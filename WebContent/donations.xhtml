@@ -25,24 +25,11 @@
 
 	$(document).ready(function() {
 		
-		$('.form-control').on('input', function(){
-			
-			if ($(this).val().indexOf(' ')>=0)
-				$(this).css('border-color', 'red')
-				.one('keyup', function(){
-					$('button').attr('disabled', true); 
-				}); 
-			else 
-				$(this).css('border-color', '#2b9bd4')
-				.one('keyup', function(){
-					$('button').removeAttr('disabled'); 
-				}); 
-		}); 
-
 		var count = $('.table').find('tr').length - 1;
-		$('.row-count').append('Total members: ' + count);
+		$('.row-count').append('Total payments: ' + count);
 
 	});
+	
 </script>
 
 
@@ -103,7 +90,7 @@
 
 
 					<f:facet name="header">
-						<div class="text-left">Payment #</div>
+						<div class="text-left">#</div>
 					</f:facet>
 					<h:outputText value="#{p.paymentNumber}" />
 

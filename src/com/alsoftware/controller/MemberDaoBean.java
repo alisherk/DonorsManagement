@@ -24,8 +24,6 @@ public class MemberDaoBean implements Serializable {
 	private List<Member> members;
 	@ManagedProperty(value = "#{memberEditBean}") 
 	private MemberEditBean memberEditBean; 
-	@ManagedProperty(value = "#{memberFilterBean}") 
-	private MemberFilterBean memberFilterBean;
 	
 	public MemberDaoBean() {
 
@@ -41,14 +39,6 @@ public class MemberDaoBean implements Serializable {
 	public void setMemberEditBean(MemberEditBean memberEditBean) {
 		this.memberEditBean = memberEditBean;
 	}
-    
-	public MemberFilterBean getMemberFilterBean() {
-		return memberFilterBean;
-	}
-
-	public void setMemberFilterBean(MemberFilterBean memberFilterBean) {
-		this.memberFilterBean = memberFilterBean;
-	}
    
 	public void setMembers(List <Member> members) {
 		this.members = members;
@@ -60,27 +50,6 @@ public class MemberDaoBean implements Serializable {
 
 	}
 
-	public String findMembers() {
-           
-		Map<String, String> values = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-		String param = values.get("members-form:searchInputParam"); 
-		MemberDao da = DaoFactory.getMemberImplDao(); 
-		List <Member> list = new ArrayList<>(); 
-		list = da.findCertMembers(param); 
-		
-		if (list == null) {
-			
-			FacesContext.getCurrentInstance().addMessage(null, 
-					new FacesMessage(FacesMessage.SEVERITY_INFO, "No members exist with such search criteria", null));			
-		} else {
-			
-			this.memberFilterBean.setMembers(list);
-			return "filter?faces-redirect=true"; 		
-	    }
-		
-		return null; 	
-	} 
-	
 	public String addMember() {
 
 		Map<String, String> formvalues = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap(); 
@@ -102,7 +71,7 @@ public class MemberDaoBean implements Serializable {
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_INFO, "Member has been added", null));
 			
-			return "registration.xhtml?faces-redirect=true";
+			return "donor-register.xhtml?faces-redirect=true";
 			
 		} else 
 			
@@ -133,7 +102,7 @@ public class MemberDaoBean implements Serializable {
     	    String pageId = FacesContext.getCurrentInstance().getViewRoot().getViewId(); 
     	    memberEditBean.setPreviousPageId(pageId);
     	    memberEditBean.setMember(member);	
-			return "editing?faces-redirect=true";
+			return "donor-edit?faces-redirect=true";
 
 		}
 

@@ -47,9 +47,9 @@ public class MemberEditBean implements Serializable {
 				return "donors?faces-redirect=true";
 
 			}
-			if (id.equals("/filter.xhtml")) {
+			if (id.equals("/donor-filter.xhtml")) {
 
-				return "filter?faces-redirect=true";
+				return "donor-filter?faces-redirect=true";
 			}
 
 		}
@@ -64,9 +64,9 @@ public class MemberEditBean implements Serializable {
     	
     	return "donors?faces-redirect=true"; 	
     	
-    } else if(id.equals("/filter.xhtml")) {
+    } else if(id.equals("/donor-filter.xhtml")) {
     	
-    	return "filter?faces-redirect=true"; 
+    	return "donor-filter?faces-redirect=true"; 
     	
     } 
        return null; 			
