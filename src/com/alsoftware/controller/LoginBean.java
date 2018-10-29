@@ -52,7 +52,7 @@ public class LoginBean implements Serializable {
 		} else {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,
 					"Username or password is incorrect", null));
-			return "login?faces-redirect=true";
+			return null; 
 		}
 	}
 
