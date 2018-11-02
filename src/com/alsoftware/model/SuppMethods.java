@@ -15,7 +15,7 @@ public class SuppMethods {
 
 
 		try {
-			ps = con.prepareStatement("Select * from Members where MemberNumber=?");
+			ps = con.prepareStatement("Select * from Donors where DonorNumber=?");
 			ps.setString(1, ID);
 			rs = ps.executeQuery();
 
@@ -36,7 +36,7 @@ public class SuppMethods {
 	public Member extractMemberFromRs(ResultSet rs) throws SQLException {
 	
         Member member = new Member();
-		member.setMemberNumber(rs.getString("MemberNumber"));
+		member.setMemberNumber(rs.getString("DonorNumber"));
 		member.setType(rs.getString("Type"));
 		member.setFirstName(rs.getString("FirstName"));
 		member.setLastName(rs.getString("LastName"));

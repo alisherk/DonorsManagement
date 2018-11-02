@@ -21,13 +21,13 @@ public class MemberDaoImpl implements MemberDao {
 		try {
 
 			List <Member> members = new ArrayList<>();
-			ps = con.prepareStatement("Select * from Members");
+			ps = con.prepareStatement("Select * from Donors");
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
 
 				Member member = new Member();
-				member.setMemberNumber(rs.getString("MemberNumber"));
+				member.setMemberNumber(rs.getString("DonorNumber"));
 				member.setType(rs.getString("type"));
 				member.setFirstName(rs.getString("FirstName"));
 				member.setLastName(rs.getString("LastName"));
@@ -65,7 +65,7 @@ public class MemberDaoImpl implements MemberDao {
 			HashMap <String, String> map = new LinkedHashMap<>();
 
 			if (number != null && number.length()!=0) {
-				map.put("MemberNumber", number);
+				map.put("DonorNumber", number);
 			}
 
 		    if (fname != null && fname.length()!=0) {
@@ -75,7 +75,7 @@ public class MemberDaoImpl implements MemberDao {
 				map.put("LastName", lname);
 			}
 
-			StringBuilder sb = new StringBuilder("Select * from Members ");
+			StringBuilder sb = new StringBuilder("Select * from Donors ");
 			Set<String> set = map.keySet();
 			
 			if (set.size() >= 1) {
@@ -101,7 +101,7 @@ public class MemberDaoImpl implements MemberDao {
 					members.add(ex.extractMemberFromRs(rs));
 				}
 				count++; 
-				sb.delete(28, 45); 		
+				sb.delete(27, 45); 		
 			}
 	
 			if (members.isEmpty()) {
@@ -125,7 +125,7 @@ public class MemberDaoImpl implements MemberDao {
 		
 		try {
 			ps = con.prepareStatement(
-					"Insert into Members (MemberNumber, Type, FirstName, LastName, StreetAddress, City, Province, PostalCode, Email, Phone)"
+					"Insert into Donors (DonorNumber, Type, FirstName, LastName, StreetAddress, City, Province, PostalCode, Email, Phone)"
 							+ "Values (?, ?, ?, ?, ?, ?, ?, ?, ?, ? )");
 
 			ps.setString(1, member.getMemberNumber());
@@ -172,7 +172,7 @@ public class MemberDaoImpl implements MemberDao {
         boolean updated = false;
 		
 		try {
-			ps = con.prepareStatement("Delete from Members where MemberNumber = ?");
+			ps = con.prepareStatement("Delete from Donors where DonorNumber = ?");
 			ps.setString(1, member.getMemberNumber());
 
 			int i = ps.executeUpdate();
@@ -197,8 +197,8 @@ public class MemberDaoImpl implements MemberDao {
 		boolean updated = false; 
 
 		try {
-			ps = con.prepareStatement("Update Members Set MemberNumber=?, Type=?, FirstName=?, LastName=?, "
-					+ "StreetAddress=?, City=?, Province=?, PostalCode=?, Email=?, Phone=?, Comment=? Where MemberNumber=?");
+			ps = con.prepareStatement("Update Donors Set DonorNumber=?, Type=?, FirstName=?, LastName=?, "
+					+ "StreetAddress=?, City=?, Province=?, PostalCode=?, Email=?, Phone=?, Comment=? Where DonorNumber=?");
 
 			ps.setString(1, member.getMemberNumber());
 			ps.setString(2, member.getType());
@@ -239,7 +239,7 @@ public class MemberDaoImpl implements MemberDao {
 
 			members.forEach(m -> membernums.add(m.getMemberNumber()));
 			
-			StringBuilder sb = new StringBuilder("Select * from Members Where MemberNumber = ?");
+			StringBuilder sb = new StringBuilder("Select * from Donors Where DonorNumber = ?");
 
 			 
 			for (String memberNumber : membernums) {

@@ -132,10 +132,4 @@ public class Member {
 		this.comment = comment;
 	}
 		 		
-    public String toString() {
-	
-    	return "memberNumber\ttype\tfirstName\tlastName\tstreetAddress\tcity\tprovince\t" + 
-    	"postalCode\temail\tcomment";
-			 	
-    }
 }
